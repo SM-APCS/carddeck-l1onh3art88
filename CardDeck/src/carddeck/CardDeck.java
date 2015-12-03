@@ -16,8 +16,11 @@ public class CardDeck {
      */
         private static Card[] cards;
         int topCardIndex;
+        
+        private int num_cards = 52;
         public CardDeck(){
-            cards = new Card[52];
+            
+            cards = new Card[num_cards];
             int numberOfCard=0; 
             for(int suit = 0; suit <= 3; suit++){
                 for(int value = 1; value <= 13; value++){
@@ -35,13 +38,24 @@ public class CardDeck {
             }
             return deck;
         }
-        public void deal(){
-            for(int i = 0; i< 52; i++){
-            Card card = cards[i];
-            System.out.println(card);
+        public void deal(int cardsDealt){
+            if (num_cards > 0){
+                for(int i = 0; i <= cardsDealt; i++){
+                Card card = cards[i];
+                System.out.println(card);
+                num_cards--;
+                }
+                
             }
-        }
+            else{
+                System.out.println("There are no more cards");
+            }
+        };
+        public void countCards(){
+            System.out.println("There are " + num_cards + " cards remaining.");
+        };
+    }
         
     
     
-}
+
