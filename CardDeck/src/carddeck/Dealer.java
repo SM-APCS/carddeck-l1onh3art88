@@ -9,13 +9,16 @@ package carddeck;
  *
  * @author spenc_000
  */
+import java.util.Scanner;
 public class Dealer {
     public static void main(String[] args) {
     CardDeck deck= new CardDeck();
-    Card card = new Card(2,1);
-    System.out.println(card);
+    Scanner scan = new Scanner(System.in);
+    System.out.println("How many cards do you want to be dealt?");
+    int numberCardsDealt = scan.nextInt();
+    
     deck.shuffle(deck);
-    deck.deal();
-    System.out.println(deck);
+    deck.deal(numberCardsDealt);
+    deck.countCards();
     }
 }
